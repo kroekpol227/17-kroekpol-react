@@ -1,10 +1,8 @@
-import { useState } from "react";
+
 import Layout from "./components/Layout.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./views/Home.jsx";
 import Owner from "./views/Owner.jsx";
-import UserHomeView from "./components/UserHomeView.jsx";
-import AdminHomeView from "./components/AdminHomeView.jsx";
 import User from "./views/User.jsx";
 import Admin from "./views/Admin.jsx";
 
@@ -28,33 +26,12 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-  const [view, setView] = useState("");
 
   return (
-    <div >
-      <div >
-        <RouterProvider router={router} />
+    <div>
 
-        <UserHomeView
-          onClick={() => {
-            setView("userhomeview");
-          }}
-        >
-          User Home View
-        </UserHomeView>
+      <RouterProvider router={router} />
 
-        <AdminHomeView
-          onClick={() => {
-            setView("adminhomeview");
-          }}
-        >
-          Admin Home View
-        </AdminHomeView>
-      </div>
-
-      {view === "userhomeview" && <UserHomeView />}
-
-      {view === "adminhomeview" && <AdminHomeView />}
     </div>
   );
 }
